@@ -1,6 +1,6 @@
 +++
 fragment = "items"
-weight = 105
+weight = 170
 background = "white"
 
 title = "GitHub Pages"
