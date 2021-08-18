@@ -4,9 +4,9 @@ weight = 10
 
 [asset]
   icon = "far fa-hand-point-right"
-  url = "https://spectrum.chat/emfcloud/"
+  url = "https://github.com/eclipse-emfcloud/emfcloud/discussions/"
 +++
 
-[Public channel](https://spectrum.chat/emfcloud/)\
+[Public channel](https://github.com/eclipse-emfcloud/emfcloud/discussions/)\
 Basic topics only\
 Longer response time
