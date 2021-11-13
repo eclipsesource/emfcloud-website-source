@@ -13,4 +13,4 @@ menu_title = "Related Projects"
 
 #### EMF.cloud
 
-EMF.cloud is a project hosted at the Eclipse Foundation, lead by [Eugen Neufeld](https://projects.eclipse.org/projects/ecd.emfcloud/who), organized within the [Eclipse Cloud Development](https://projects.eclipse.org/projects/ecd) project.
+EMF.cloud is a project hosted at the [Eclipse Foundation](https://eclipse.org), lead by [Eugen Neufeld](https://projects.eclipse.org/projects/ecd.emfcloud/who), organized within the [Eclipse Cloud Development](https://projects.eclipse.org/projects/ecd) project.
