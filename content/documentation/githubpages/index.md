@@ -1,7 +1,6 @@
 +++
 fragment = "items"
 weight = 170
-background = "white"
 
 title = "GitHub Pages"
 #subtitle= "Column based items with icons"

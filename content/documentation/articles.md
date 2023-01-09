@@ -2,6 +2,7 @@
 fragment = "content"
 title = "Articles"
 weight = 150
+background = "white"
 +++
 <span style='display:block; text-align: center;'>
 

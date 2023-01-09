@@ -1,8 +1,7 @@
 +++
 fragment = "content"
 title = "Videos"
-weight = 110
-background = "white"
+weight = 120
 +++
 <span style='display:block; text-align: center;'>
 EclipseCon 2021: <a target="_blank" href="https://www.youtube.com/watch?v=mEr-v8t2ZQ8">Model validation, diffing and more with EMF.cloud</a></br></br>
