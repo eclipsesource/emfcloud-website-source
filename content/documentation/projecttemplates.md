@@ -6,7 +6,7 @@ background = "white"
 +++
 <span style='display:block; text-align: center;'>
 
-To get you started quickly, we provide project templates for the most popular choices including EMF.cloud and [GLSP](https://www.eclipse.org/glsp/documentation/gettingstarted/) components.
+To get you started quickly, we provide project templates for the most popular choices including EMF.cloud and [GLSP](https://www.eclipse.dev/glsp/documentation/gettingstarted/) components.
 
 Please see the following project-template and follow its README file.
 

@@ -1,6 +1,6 @@
 # Sources of the EMF Cloud Website
 
-This repository hosts the sources of [eclipse.org/emfcloud](https://www.eclipse.org/emfcloud).
+This repository hosts the sources of [eclipse.dev/emfcloud](https://www.eclipse.dev/emfcloud).
 We use the [Syna](https://github.com/okkur/syna) thema for [Hugo](https://gohugo.io/)
 
 Please check the [Syna documentation](https://about.okkur.org/syna/docs/). The Syna theme heavily works with fragments, therefore the development differs a bit from a "normal" Hugo website.
