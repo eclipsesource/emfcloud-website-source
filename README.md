@@ -5,7 +5,7 @@ We use the [Syna](https://github.com/okkur/syna) thema for [Hugo](https://gohugo
 
 Please check the [Syna documentation](https://about.okkur.org/syna/docs/). The Syna theme heavily works with fragments, therefore the development differs a bit from a "normal" Hugo website.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/eclipsesource/emf-cloud-website)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/eclipse-emfcloud/emfcloud-website-source)
 
 ## Quick start
 

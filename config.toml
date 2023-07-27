@@ -136,7 +136,7 @@ lastmod = ["lastmod", ":git", "date"]
   weight = 30
   name = "github"
   pre = "fab fa-github"
-  url = "https://github.com/eclipsesource/emfcloud"
+  url = "https://github.com/eclipse-emfcloud/emfcloud"
 
 [[menu.footer_social]]
   weight = 30
