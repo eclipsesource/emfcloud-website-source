@@ -7,17 +7,21 @@ background = "dark" # can influence the text color
 particles = true
 
 title = "EMF.cloud"
-subtitle = "EMF.cloud - evolve your modeling tools to the web!"
+subtitle = "Develop web-based modeling tools with ease"
 
 [header]
-
 
 [asset]
   image = "diagramanimated.gif"
   width = "600px" # optional - will default to image width
 
 [[buttons]]
-  text = "Components"
+  text = "Try Now"
+  url = "#try-now"
+  color = "primary"
+
+[[buttons]]
+  text = "Getting Started"
   url = "#components"
   color = "primary"
 
