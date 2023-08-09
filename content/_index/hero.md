@@ -17,12 +17,12 @@ subtitle = "Develop web-based modeling tools with ease"
 
 [[buttons]]
   text = "Try Now"
-  url = "#try-now"
+  url = "https://eclipsesource.com/coffee-editor"
   color = "primary"
 
 [[buttons]]
   text = "Getting Started"
-  url = "#components"
+  url = "/documentation/overview"
   color = "primary"
 
 [[buttons]]
