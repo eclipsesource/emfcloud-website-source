@@ -14,7 +14,7 @@ This full-featured example tool is written entirely in Typescript and includes a
   <img src="../../images/coffeeeditormodelhub.svg" alt="Overview of the Model Hub for the Coffee Editor NG" width="70%" />
 </div>
 
-The core of the Coffee Editor NG is a model language contribution to the Model Hub
+The core of the Coffee Editor NG is a model language contribution to the Model Hub.
 With this language contribution, we register the modeling language alongside the capabilities for handling this modeling language in the Model Hub.
 The contributed Coffee Editor NG Model is defined with Langium, an open-source language toolkit for textual languages.
 The Langium-based language is then integrated into the Model Hub API with the generic *EMF.cloud Model Hub Langium* integration library, so that Model Hub clients can interact with the language on model level and benefit from Langium's efficient persistence, cross-reference management and validation mechanism.
