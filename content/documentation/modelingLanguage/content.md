@@ -81,7 +81,7 @@ and
 
 When Langium encounters such content, it will first parse the document, export symbols into the global index, compute the local scope for symbols, link cross references according to the scope, index the resolved cross references and then validate the document.
 
-However, when you input the examples above with out grammar, you will notice that there are a few things that do not work as expected out of the box:
+However, when you input the examples above with our grammar, you will notice that there are a few things that do not work as expected out of the box:
 
 1. References are done based on the `name` property instead of `id`.
 2. The workflow cannot properly be referenced as it is only a child of the workflow.
