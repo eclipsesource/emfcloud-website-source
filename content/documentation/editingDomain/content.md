@@ -12,7 +12,7 @@ Edition of models is handled by the ModelManager, by executing Commands on one o
 
 #### Model Service implementation
 
-As seen in the ModelHub section, the ModelServiceContribution is the entry point for language-specific contributions. Upon initialization of the ModelHub, each contribution will get access to the ModelManager, and should typically forward it to their ModelService implementation.
+As seen in the [ModelHub section]({{< relref  "modelhub" >}}), the ModelServiceContribution is the entry point for model-specific contributions. Upon initialization of the ModelHub, each contribution will get access to the ModelManager, and should typically forward it to their ModelService implementation.
 
 ```ts
 @injectable()
@@ -181,3 +181,18 @@ export class CoffeeModelServiceImpl implements CoffeeModelService {
 }
 ```
 
+#### Command Stack IDs
+
+A Command can be executed on any CommandStack. The Command Stack ID defines how Undo/Redo will behave, especially when a Command affects multiple models. When undoing (or redoing) changes on a Command Stack, the latest command executed on this Stack will be undone, ignoring commands that were executed in different stacks.
+
+The most typical use case is to have one command stack per editor, so editors are independent from each other: undoing changes in one editor (command stack) does not affect the state of other editors.
+
+However, when models have cross-references, you may be able to open inter-related models in different editors. In this case, it can be necessary to use a shared command stack for all editors, to ensure all editors work on a consistent state of the model. In that case, you may want to use a Command Stack Identifier that represents the entire set of inter-related models, such as the parent folder path, or project name.
+
+#### Model Hub Context
+
+A Context is a string identifier that defines the scope of a Model Hub. One model hub instance exists per context. Each Model Hub has its own set of Model Service Contributions, Model Manager, and set of Command Stacks, which are completely independent from other Model Hub instances. A Command executed in a given context cannot be undone from another context.
+
+It is up to each application to decide how these contexts are defined. For example, you may decide that you need to isolate changes on a per-project basis, in which case it can be useful to use the Project ID as the Model Hub context. Alternatively, if you're defining several modeling languages without any relationship to each other, you may choose to use the language ID as the context.
+
+For simpler applications, using a single, constant context ID is usually recommended.
