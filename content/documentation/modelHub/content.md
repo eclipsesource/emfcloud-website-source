@@ -37,7 +37,7 @@ class ModelHubExample {
 
 #### Loading and saving models
 
-Loading and saving models can be achieved by calling the corresponding methods on your model hub instance, assuming contributions have been registered that can handled the requested model IDs. Model IDs are string identifiers that represent a model. They are typically URIs, but can be any arbitrary strings, as long as a Persistence Contribution is able to handle them (See Persistence section below).
+Loading and saving models can be achieved by calling the corresponding methods on your model hub instance, assuming contributions have been registered that can handled the requested model IDs. Model IDs are string identifiers that represent a model. They are typically URIs, but can be any arbitrary strings, as long as a Persistence Contribution is able to handle them (See [Persistence section]({{< relref  "#persistence" >}}) below).
 
 ```ts
 const modelId = 'file:///coffee-editor/examples/workspace/superbrewer3000.coffee';
@@ -392,9 +392,15 @@ export class CoffeeModelServiceContribution extends AbstractModelServiceContribu
 }
 ```
 
-The API can then be retrieved and use by any model hub client:
+The API can then be retrieved and used by any model hub client:
 
 ```ts
 const coffeeModelService = modelHub.getModelService<CoffeeModelService>(COFFEE_SERVICE_KEY);
-const coffeeModel = await coffeeModelService.getModel('file:///coffee-editor/examples/workspace/superbrewer3000.coffee');
+const modelUri = 'file:///coffee-editor/examples/workspace/superbrewer3000.coffee';
+const coffeeModel = await coffeeModelService.getModel(modelUri);
+const createArgs = {
+  type: 'AutomaticTask',
+  name: 'new task'
+}
+await coffeeModelService.createNode(modelUri, coffeeModel.workflows[0], createArgs);
 ```
