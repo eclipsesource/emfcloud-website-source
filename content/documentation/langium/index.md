@@ -1,4 +1,4 @@
 +++
 title = "Langium Integration"
-weight = 150
+weight = 160
 +++
