@@ -70,9 +70,9 @@ modelHub.save();
 
 #### Resolving references
 
-If you have cross references in your model, i.e., pointers to other nodes either within the same model or another model in another document, you need to consider how those references should be represented and how they can be resolve do the referenced element.
+If you have cross references in your model, i.e., pointers to other nodes either within the same model or another model in another document, you need to consider how those references should be represented and how they can be resolve to the referenced element.
 By default, references are represented as information about a typed and named nodes located to a particular path within a document.
-The main reasoning for this representation is that it uniquely identifies an element and can be serialized and sent to clients who can later use that informationt to resolve the actual element.
+The main reasoning for this representation is that it uniquely identifies an element and can be serialized and sent to clients who can later use that information to resolve the actual element.
 However, not all cross references may be resolvable due to changes in the model or the modeling language used.
 In such cases, we want to provide as much information as we can to the client by at least giving the text that was used in the model for the reference and a potentially custom error.
 Treating reference errors as just another case in reference resolutions allows them to be effectively handled by any type of client, no matter the visual representation.
