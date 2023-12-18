@@ -51,7 +51,7 @@ const modelId = 'file:///coffee-editor/examples/workspace/superbrewer3000.coffee
 const model: CoffeeModelRoot = await modelHub.getModel<CoffeeModelRoot>(modelId);
 ```
 
-**Note:**: If the model is already loaded, the in-memory instance will be immediately returned. Otherwise, the model hub will look for a Persistence Contribution that can handle the requested `modelId`, and load it before returning it. Since loading may require asynchronous operations, the `getModel()` method is itself asynchronous.
+**Note:** If the model is already loaded, the in-memory instance will be immediately returned. Otherwise, the model hub will look for a Persistence Contribution that can handle the requested `modelId`, and load it before returning it. Since loading may require asynchronous operations, the `getModel()` method is itself asynchronous.
 
 After applying some changes, you can save your model. For editing the model, the ModelHub uses Commands executed on a CommandStack, identified by a CommandStackId. When using a single model, the commandStackId can be the same value as the modelId. However, since Commands may affect multiple models in some cases, you may want to use a different CommandStackId. When saving this CommandStack, all models that have been modified by a Command executed on this CommandStack will be saved.
 
@@ -70,7 +70,60 @@ modelHub.save();
 
 #### Resolving references
 
-TODO: References are not supported by the ModelHub out of the box. See Langium integration.
+If you have cross references in your model, i.e., pointers to other nodes either within the same model or another model in another document, you need to consider how those references should be represented and how they can be resolve do the referenced element.
+By default, references are represented as information about a typed and named nodes located to a particular path within a document.
+The main reasoning for this representation is that it uniquely identifies an element and can be serialized and sent to clients who can later use that informationt to resolve the actual element.
+However, not all cross references may be resolvable due to changes in the model or the modeling language used.
+In such cases, we want to provide as much information as we can to the client by at least giving the text that was used in the model for the reference and a potentially custom error.
+Treating reference errors as just another case in reference resolutions allows them to be effectively handled by any type of client, no matter the visual representation.
+
+```ts
+export interface NodeInfo {
+  /** URI to the document containing the referenced element. */
+  $documentUri: string;
+  /** Navigation path inside the document */
+  $path: string;
+  /** `$type` property value */
+  $type: string;
+  /** Name of element */
+  $name: string;
+  /** Generic object properties */
+  [x: string]: unknown;
+}
+
+export interface ReferenceError {
+  $refText: string;
+  $error: string;
+}
+
+export type ReferenceInfo = NodeReferenceInfo | ReferenceError;
+```
+
+While the ModelHub server flattens the reference information to be serializable, on the client side we often want to interact with the actual element that the reference represents instead of always being aware that there is a reference that we need to resolve.
+To ease that more natural use of an object graph on the client side, we provide a utility function that replaces all unresolved references with reference objects that can query the object using a custom resolution mechanism.
+In its purest form such a reference object may simply go to the ModelHub server and query the node based on the node info.
+In more complex or high performance scenarios a different resolution or caching may be introduced.
+
+```ts
+export type Reference<T> = Partial<NodeReferenceInfo> &
+  Partial<ReferenceError> & {
+    element(): Promise<T | undefined>;
+    error(): string | undefined;
+  };
+
+export type ReferenceFactory<T> = (info: ReferenceInfo) => Reference<T>;
+
+export function reviveReferences<T extends object>(obj: T, referenceFactory: ReferenceFactory<T>): T {
+  for (const [key, value] of Object.entries(obj)) {
+    if (isReferenceInfo(value)) {
+      (obj as any)[key] = referenceFactory(value);
+    } else if (value && typeof value === 'object') {
+      reviveReferences(value, referenceFactory);
+    }
+  }
+  return obj;
+}
+```
 
 #### Changing models
 
@@ -273,7 +326,59 @@ class CoffeePersistenceContribution implements ModelPersistenceContribution {
 
 #### Cross References
 
-TODO: References are not supported by the ModelHub out of the box. See Langium integration.
+As discussion in the [reference resolution section](#resolving-references), cross references that stem from your custom [Langium-based modeling language](../modelinglanguage/) need to be serializable so they can be sent to ModelHub clients.
+Cross references in Langium are regular objects that may contain cycles.
+Breaking those cycles is the main purpose of the [AstLanguageModelConverter](../langium/), a converter between the Langium-based AST model and the client language model.
+By default, the ModelHub converter converts the `Reference` objects from Langium to `ReferenceInfo` objects that can be serialized and later revived again based on the document location:
+
+```ts
+export class DefaultAstLanguageModelConverter implements AstLanguageModelConverter {
+  ...
+  protected replacer(_source: AstNode, key: string, value: unknown): unknown {
+    ...
+    if (isReference(value)) {
+      return this.replaceReference(value);
+    }
+    return value;
+  }
+
+  protected replaceReference(value: Reference<AstNode>): client.ReferenceInfo {
+    return value.$nodeDescription && value.ref
+      ? {
+          $documentUri: getDocument(value.ref).uri.toString(),
+          $name: value.$nodeDescription.name,
+          $path: value.$nodeDescription.path,
+          $type: value.$nodeDescription.type
+        }
+      : {
+          $refText: value.$refText,
+          $error: value.error?.message ?? 'Could not resolve reference: ' + value.$refText
+        };
+  }
+
+  protected reviveNodeReference(container: AstNode, reference: client.NodeReferenceInfo): Reference {
+    const node = this.resolveClientReference(container, reference);
+    return {
+      $refText: reference.$name,
+      $nodeDescription: {
+        documentUri: URI.parse(reference.$documentUri),
+        name: reference.$name,
+        path: reference.$path,
+        type: reference.$type
+      },
+      $refNode: node?.$cstNode
+    };
+  }
+
+  protected resolveClientReference(container: AstNode, reference: client.NodeReferenceInfo): AstNode | undefined {
+    const uri = URI.parse(reference.$documentUri);
+    const root = uri ? this.documents.getOrCreateDocument(uri).parseResult.value : container;
+    return this.getAstNodeLocator(root.$document?.uri)?.getAstNode(root, reference.$path);
+  }
+}
+```
+
+As with all other services, the behavior of this conversion can be adapted by extending or completely replacing the implementation and re-binding it in the respective module.
 
 #### Editing Domain
 
