@@ -23,9 +23,13 @@ In order to also simplify the editing capabilities, including undo and redo, on 
 
 Finally, the Coffee Editor NG language contribution adds a custom coffee-model-specific API to be used by clients in order to provide reusable model queries and manipulation functions to the clients.
 
+<!--
 ➡️ TODO Link to try now
 
 ➡️ TODO Link to source code and a good entry point to look at the language contribution
+-->
+
+We will provide a live demo as well as a link to GitHub as soon as the code is published.
 
 In the remainder of this documentation, we use the Coffee Editor NG as an example to demonstrate how certain capabilities can be customized, extended or exchanged with other implementations.
 Please use the table of contents on the left to navigate to the respective topic of interest.
