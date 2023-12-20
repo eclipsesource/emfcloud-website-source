@@ -16,7 +16,7 @@ This is reflected in several design decisions:
 
 - We are re-using the dependency injection framework from Langium to bind our own Model Hub-specific services, such as the core model hub implementation, the model manager that holds the model storage, the overall command stack and the model subscriptions or the validation service that ensures that all custom validations are run on each model.
 
-The bridge that connects the Model Hub world with the Langium world is our generic _EMF.cloud Model Hub Langium integration library_.
+The bridge that connects the Model Hub world with the Langium world is our generic _EMF Cloud Model Hub Langium integration library_.
 That library has two main components:
 
 1. The Abstract Syntax Tree (AST) server that serves as a facade to access and update semantic models from the Langium language server as a non-LSP client.
@@ -96,4 +96,4 @@ class CoffeePersistence implements ModelPersistenceContribution<string, CoffeeMo
 A model validation contribution can provide a set of validators that work on the semantic model of the Model Hub.
 As a result, a validator can return a hierarchical diagnotic object that captures the infos, warnings, and errors of a particular part in the model.
 Using the generic transformations between the Langium and Model Hub space, the main work in this contribution is the translation from Langium's `DiagnosticInfo` to the Model Hub's more generic `Diagnostic`.
-Providing this translation as part of the generic _EMF.cloud Model Hub Langium integration library_ is on the roadmap but can be also extracted from any public example.
+Providing this translation as part of the generic _EMF Cloud Model Hub Langium integration library_ is on the roadmap but can be also extracted from any public example.

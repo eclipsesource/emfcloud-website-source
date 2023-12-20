@@ -10,7 +10,7 @@ weight = 998
 
 ## EMF Model Server
 
-If you are not creating your modeling tool from scratch, but need to migrate an existing EMF-based model to a modern web-based modeling tool, EMF.cloud provides a dedicated model management component, called [*EMF Model Server*](https://github.com/eclipse-emfcloud/emfcloud-modelserver). The EMF Model Server is written in Java and provides access to your EMF models, including manipulation, state management, undo and redo, via a generic REST API, as well as a JSON-RPC channel.
+If you are not creating your modeling tool from scratch, but need to migrate an existing EMF-based model to a modern web-based modeling tool, EMF Cloud provides a dedicated model management component, called [*EMF Model Server*](https://github.com/eclipse-emfcloud/emfcloud-modelserver). The EMF Model Server is written in Java and provides access to your EMF models, including manipulation, state management, undo and redo, via a generic REST API, as well as a JSON-RPC channel.
 This not only opens up accessing EMF models from web-based frontends and other components that aren't written in Java, but also encapsulates your EMF dependency for future migrations.
 
 Alongside the EMF Model Server, there are also several components that simplify interacting with an EMF Model Server:
@@ -40,7 +40,7 @@ Go ahead and [try out the coffee editor online](https://eclipsesource.com/coffee
 
 ## Getting Started
 
-To get you started quickly, we also provide project templates for the most popular choices including EMF.cloud and [GLSP](https://www.eclipse.dev/glsp/documentation/gettingstarted/) components.
+To get you started quickly, we also provide project templates for the most popular choices including EMF Cloud and [GLSP](https://www.eclipse.dev/glsp/documentation/gettingstarted/) components.
 
 Please see the following project-template and follow its README file.
 

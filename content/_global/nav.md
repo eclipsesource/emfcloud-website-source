@@ -5,6 +5,6 @@ weight = 0
 # Branding options
 [asset]
   image = "logo.png"
-  text = "EMF.cloud"
-  title = "EMF.cloud"
+  text = "EMF Cloud"
+  title = "EMF Cloud"
 +++

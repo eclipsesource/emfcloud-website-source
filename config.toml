@@ -1,6 +1,6 @@
 baseURL = "https://www.eclipse.dev/emfcloud"
 DefaultContentLanguage = "en"
-title = "EMF.cloud"
+title = "EMF Cloud"
 theme = "syna"
 
 [markup.goldmark.renderer]
@@ -15,7 +15,7 @@ lastmod = ["lastmod", ":git", "date"]
 
 [params]
   name = "Eclipse Foundation"
-  description = "EMF.cloud"
+  description = "EMF Cloud"
 
   [params.style]
     #background = "secondary"
