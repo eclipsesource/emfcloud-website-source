@@ -19,6 +19,7 @@ weight = 999
 
 ## Videos
 
+* EclipseCon 2023: <a target="_blank" href="https://www.youtube.com/watch?v=U0TRt3aukTc">Building cloud-native (modeling) tools</a>
 * EclipseCon 2021: <a target="_blank" href="https://www.youtube.com/watch?v=mEr-v8t2ZQ8">Model validation, diffing and more with EMF.cloud</a>
 * Eclipse Cloud Tool Time June 2021: <a target="_blank" href="https://www.youtube.com/watch?v=5oXC_smkAik">Web-based tools - built with Eclipse (only)</a>
 * Eclipse Cloud Tool Time March 2021: <a target="_blank" href="https://www.youtube.com/watch?v=qjris1CdJow">Web-based modeling tools with EMF.cloud</a>

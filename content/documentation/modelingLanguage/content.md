@@ -6,7 +6,7 @@ weight = 160
   sticky = true
 +++
 
-In Model Hub, languages can be easily defined using Langium. 
+In Model Hub, languages can be easily defined using Eclipse Langium. 
 [Langium](https://langium.org/) is an open source language engineering tool that allows you to declare the syntax of your modeling language in form of an EBNF-like grammar.
 From that grammar, the Langium CLI can generate a complete TypeScript-based language server, including syntax highlighting, auto-completion, cross references, validation and many other features.
 Internally, Langium uses a [Chevrotain](https://chevrotain.io/docs/) parser extended with an [ALL(*) algorithm](https://www.typefox.io/blog/allstar-lookahead) for unbounded lookahead and is re-using language server infrastructure classes from VS Code.
