@@ -39,7 +39,7 @@ Similarly, we can re-use the generated Langium infrastructure to store the model
 Furthermore, we need to ensure that anytime a model is updated on the Langium side we properly update the model on the Model Hub side.
 We achieve that by installing a listener on the Langium side and using the Model Manager from the Model Hub to execute a PATCH command that updates the model in the Model Hub.
 
-For the Coffe Model, the persistence contribution may look something like this:
+For the Coffee Model, the persistence contribution may look something like this:
 
 ```javascript
 
