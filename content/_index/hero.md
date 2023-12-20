@@ -6,7 +6,7 @@ weight = 100
 background = "dark" # can influence the text color
 particles = true
 
-title = "EMF.cloud"
+title = "EMF Cloud"
 subtitle = "Develop web-based modeling tools with ease"
 
 [header]

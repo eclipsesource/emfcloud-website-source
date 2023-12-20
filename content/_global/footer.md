@@ -5,14 +5,14 @@ weight = 2000
 menu_title = "Related Projects"
 
 [asset]
-  title = "EMF.cloud"
+  title = "EMF Cloud"
   image = "logo.png"
-  text = "EMF.cloud"
+  text = "EMF Cloud"
   url = "#"
 +++
 
-#### EMF.cloud
+#### EMF Cloud
 
-EMF.cloud is a project hosted at the [Eclipse Foundation](https://eclipse.org), lead by [Eugen, Philip and Maximilian](https://projects.eclipse.org/projects/ecd.emfcloud/who), organized within the [Eclipse Cloud Development](https://projects.eclipse.org/projects/ecd) project.
+EMF Cloud is a project hosted at the [Eclipse Foundation](https://eclipse.org), lead by [Eugen, Philip and Maximilian](https://projects.eclipse.org/projects/ecd.emfcloud/who), organized within the [Eclipse Cloud Development](https://projects.eclipse.org/projects/ecd) project.
 
 Gefördert durch: ![BMBG Logo](/emfcloud/images/BMBF_Logo.svg)

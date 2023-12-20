@@ -6,7 +6,7 @@ weight = 110
   sticky = true
 +++
 
-At the center of EMF.cloud, there is a model management component, which provides consistent model access, as well as an interface for manipulating models and listening to model changes across various editors, views, and components interacting with a model.
+At the center of EMF Cloud, there is a model management component, which provides consistent model access, as well as an interface for manipulating models and listening to model changes across various editors, views, and components interacting with a model.
 This model management component is called [*Model Hub* (Typescript)]({{< relref "modelHub" >}}).
 
 <div style="text-align:center; margin-bottom:20px">
@@ -21,8 +21,8 @@ For each modeling language or format, you can register a *modeling language cont
 This gives you full control and customizability in all relevant aspects of the model management for your modeling language, format, or data source, whether it is a JSON file, custom file format, database, or REST service that you want to make available to your clients by integrating them with the Model Hub.
 
 To make your life easier, you don't have to implement all of those Model Hub capabilities from scratch for every modeling language.
-Instead EMF.cloud provides reusable libraries and integration code for third-party components to cover the most common choices and formats, such as JSON files.
-Also, EMF.cloud contains libraries that make it easy to connect and interact with the Model Hub.
+Instead EMF Cloud provides reusable libraries and integration code for third-party components to cover the most common choices and formats, such as JSON files.
+Also, EMF Cloud contains libraries that make it easy to connect and interact with the Model Hub.
 
 ➡️ Best to [get started]({{< relref  "gettingStarted" >}}) with the Coffee Editor NG!
 
