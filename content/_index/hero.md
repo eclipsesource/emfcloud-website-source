@@ -12,8 +12,8 @@ subtitle = "Develop web-based modeling tools with ease"
 [header]
 
 [asset]
-  image = "diagramanimated.gif"
-  width = "600px" # optional - will default to image width
+  image = "coffeeeditordemo_ng.gif"
+  width = "800px" # optional - will default to image width
 
 [[buttons]]
   text = "Try Now"
