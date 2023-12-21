@@ -14,7 +14,7 @@ weight = 190
 
 The foundation of implementing diagram editors is the [GLSP framework](https://eclipse.dev/glsp/).
 This guide will give an introduction to connect GLSP diagram editors with the [ModelHub](https://github.com/eclipsesource/coffee-editor/tree/main/emfcloud-modelmanager/model-service-theia).
-Specifically, the GLSP diagram editor makes use of the frontend `ModelHub` and its provided interfaces like the `CoffeeModelServer` or the `CoffeeModelService` for seamless integration and outsourced data management.
+Specifically, the GLSP diagram editor makes use of the `ModelHub` and the interfaces of the `ModelService` like the `CoffeeModelServer` or the `CoffeeModelService` for seamless integration and outsourced data management.
 Furthermore, specific examples of the [Coffee Editor NG implementation](#coffee-editor-ng-example) will be given as a guideline.
 
 ## ModelHub Integration
